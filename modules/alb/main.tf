@@ -12,7 +12,7 @@ resource "aws_alb_target_group" "default" {
     protocol = "HTTP"
   }
 
-  tags {
+  tags = {
     Environment = "${var.environment}"
   }
 }
@@ -22,7 +22,7 @@ resource "aws_alb" "alb" {
   subnets         = ["${var.public_subnet_ids}"]
   security_groups = ["${aws_security_group.alb.id}"]
 
-  tags {
+  tags = {
     Environment = "${var.environment}"
   }
 }
@@ -42,7 +42,7 @@ resource "aws_security_group" "alb" {
   name   = "${var.alb_name}_alb"
   vpc_id = "${var.vpc_id}"
 
-  tags {
+  tags = {
     Environment = "${var.environment}"
   }
 }

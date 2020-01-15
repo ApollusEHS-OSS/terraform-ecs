@@ -8,7 +8,7 @@ resource "aws_security_group" "instance" {
   description = "Used in ${var.environment}"
   vpc_id      = "${var.vpc_id}"
 
-  tags {
+  tags = {
     Environment   = "${var.environment}"
     Cluster       = "${var.cluster}"
     InstanceGroup = "${var.instance_group}"
@@ -91,7 +91,7 @@ resource "aws_autoscaling_group" "asg" {
 data "template_file" "user_data" {
   template = "${file("${path.module}/templates/user_data.sh")}"
 
-  vars {
+  vars = {
     ecs_config        = "${var.ecs_config}"
     ecs_logging       = "${var.ecs_logging}"
     cluster_name      = "${var.cluster}"
