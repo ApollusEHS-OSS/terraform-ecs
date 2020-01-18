@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 module "ecs" {
   source = "./modules/ecs"
 
@@ -23,7 +19,6 @@ module "ecs" {
 resource "aws_key_pair" "ecs" {
   key_name   = "ecs-key-${var.environment}"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAorjPQ7947Dgvpj0oOsN2q+XNUiABvYPsEKMPAxCbcwHwH9XdGFxdGL0BXEVmErP9H2gBvZ8vv29XradKVkneY2+BR7bnPLNHkqvm0XH2t4Tx+mmAHWXGnZwCdcPCXQPO1UO9Gzrn7OS1zJ8D8AKwM5OUXg6TPTQ/uoPenxPcRgzjaLkkC8tkhLgxOZRl2hRkR9IO8xWeihtafuVSftVUd9MxDEc7jwQ9I+4JoNL6FIbZzUDqdYFgCfA9lw1JPYPfmo9IilJ7d6k+3h3ycER8FbB+/NwBvIOP30QtKx2+pWtpGcxglq4GEhlJMNCTIGtoxEDN4fxziLkZla40ZijX robert@Roberts-MacBook-Pro.local"
-#  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtMljjj0Ccxux5Mssqraa/iHHxheW+m0Rh17fbd8t365y9EwBn00DN/0PjdU2CK6bjxwy8BNGXWoUXiSDDtGqRupH6e9J012yE5kxhpXnnkIcLGjkAiflDBVV4sXS4b3a2LSXL5Dyb93N2GdnJ03FJM4qDJ8lfDQxb38eYHytZkmxW14xLoyW5Hbyr3SXhdHC2/ecdp5nLNRwRWiW6g9OA6jTQ3LgeOZoM6dK4ltJUQOakKjiHsE+jvmO0hJYQN7+5gYOw0HHsM+zmATvSipAWzoWBWcmBxAbcdW0R0KvCwjylCyRVbRMRbSZ/c4idZbFLZXRb7ZJkqNJuy99+ld41 ecs@aws.fake"
 }
 
 variable "vpc_cidr" {}
