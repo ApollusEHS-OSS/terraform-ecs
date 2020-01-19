@@ -62,3 +62,26 @@ resource "aws_security_group" "ecs_service_kong" {
   ]
 }
 
+resource "aws_ecs_service" "kong" {
+  name                = "${var.app_name}"
+  launch_type         = "EC2"
+  cluster             = "${aws_ecs_cluster.main.id}"
+  task_definition     = "${aws_ecs_task_definition.kong.arn}"
+  desired_count       = "${var.ecs_service_desired_count}"
+  scheduling_strategy = "DAEMON"
+
+  load_balancer {
+    target_group_arn  = "${aws_alb_target_group.main.id}"
+    container_name    = "${var.app_name}"
+    container_port    = "${var.kong_port_http}"
+  }
+
+  network_configuration {
+    subnets             = ["${module.vpc.private_subnets}"]
+    assign_public_ip    = false
+    security_groups     = ["${aws_security_group.ecs_service_kong.id}"]
+  }
+  depends_on = [
+    "aws_alb.main"
+  ]
+}
