@@ -6,6 +6,7 @@ variable "aws_default_ami" {
 variable "aws_region" {
   default = "us-east-1"
 }
+
 variable "aws_profile_name" {
   default = "kong-test"
 }
