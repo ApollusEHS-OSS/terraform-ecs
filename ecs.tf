@@ -1,6 +1,5 @@
 # ECS cluster
 
-#variable "vpc_cidr" {}
 variable "environment" {}
 variable "max_size" {}
 variable "min_size" {}
@@ -17,9 +16,9 @@ module "ecs" {
   cluster              = "${var.environment}"
   cloudwatch_prefix    = "${var.environment}"           #See ecs_instances module when to set this and when not!
   vpc_cidr             = "${var.vpc_cidr}"
-  public_subnet_cidrs  = "${var.public_subnet_cidrs}"
-  private_subnet_cidrs = "${var.private_subnet_cidrs}"
-  availability_zones   = "${var.availability_zones}"
+  public_subnet_cidrs  = ["${var.public_subnet_cidrs}"]
+  private_subnet_cidrs = ["${var.private_subnet_cidrs}"]
+  availability_zones   = ["${var.availability_zones}"]
   max_size             = "${var.max_size}"
   min_size             = "${var.min_size}"
   desired_capacity     = "${var.desired_capacity}"
