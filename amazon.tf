@@ -1,6 +1,14 @@
-variable "aws_default_ami" {}
-variable "aws_region" {}
-variable "aws_profile_name" {}
+# Amazon globals
+
+variable "aws_default_ami" {
+  default = "ami-0f81924348bcd01a1"
+}
+variable "aws_region" {
+  default = "us-east-1"
+}
+variable "aws_profile_name" {
+  default = "kong-test"
+}
 
 provider "aws" {
   region = "${var.aws_region}"
