@@ -1,9 +1,9 @@
-variable "app_name" {
-  default = "Kong"
-}
-variable "region" {
-  default = "us-east-1"
-}
+# variable "app_name" {
+#   default = "Kong"
+# }
+# variable "region" {
+#   default = "us-east-1"
+# }
 variable "ssh_key_name" {
   default = "jk_uswest2"
 }
@@ -31,39 +31,39 @@ variable "container_memory_reservation" {
 }
 
 # DB
-variable "db_name" {
-  default = "kong"
-}
-variable "db_username" {
-  default = "kong"
-}
-variable "db_password" {
-  default = "blablabla"
-}
-variable "db_engine" {
-  default = "postgres"
-}
-variable "db_engine_version" {
-  default = "9.5"
-}
-variable "db_instance_class" {
-  default = "db.t2.micro"
-}
+# variable "db_name" {
+#   default = "kong"
+# }
+# variable "db_username" {
+#   default = "kong"
+# }
+# variable "db_password" {
+#   default = "blablabla"
+# }
+# variable "db_engine" {
+#   default = "postgres"
+# }
+# variable "db_engine_version" {
+#   default = "9.5"
+# }
+# variable "db_instance_class" {
+#   default = "db.t2.micro"
+# }
 variable "bastion_instance_class" {
   default = "t2.micro"
 }
-variable "db_port" {
-  default = 5432
-}
-variable "db_maintenance_window" {
-  default = "Mon:00:00-Mon:03:00"
-}
-variable "db_backup_window" {
-  default = "03:00-06:00"
-}
-variable "db_allocated_storage_gb" {
-  default = 5
-}
+# variable "db_port" {
+#   default = 5432
+# }
+# variable "db_maintenance_window" {
+#   default = "Mon:00:00-Mon:03:00"
+# }
+# variable "db_backup_window" {
+#   default = "03:00-06:00"
+# }
+# variable "db_allocated_storage_gb" {
+#   default = 5
+# }
 
 # Kong
 variable "kong_port_admin" {

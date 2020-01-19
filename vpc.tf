@@ -8,9 +8,11 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_cidrs" {
+#  type = list(string)
 }
 
 variable "private_subnet_cidrs" {
+#  type = list(string)
 }
 
 module "vpc" {
@@ -21,8 +23,8 @@ module "vpc" {
   map_public_ip_on_launch   = false
 
   azs                       = "${data.aws_availability_zones.available.names}"
-  private_subnets           = [$var.private_subnet_cidrs]
-  public_subnets            = [${var.public_subnet_cidrs}]
+  private_subnets           = "${var.private_subnet_cidrs}"
+  public_subnets            = "${var.public_subnet_cidrs}"
 
   enable_nat_gateway        = true
   single_nat_gateway        = false
