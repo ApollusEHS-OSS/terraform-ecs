@@ -24,7 +24,7 @@ variable "db_port" {
 # RDS
 resource "aws_security_group" "rds_sg" {
   name        = "${var.app_name}-RDS-SG"
-  vpc_id      = "${module.vpc.vpc_id}"
+  vpc_id      = "${module.vpc.id}"
 
   ingress {
     description               = "Postgres access from ECS cluster"
